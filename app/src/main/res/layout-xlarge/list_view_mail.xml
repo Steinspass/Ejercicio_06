@@ -10,7 +10,7 @@
         android:layout_width="52dp"
         android:layout_height="52dp"
         android:layout_gravity="center"
-        android:background="@mipmap/rounder_corner"
+        android:background="@drawable/rounded_corner"
         android:gravity="center"
         android:text="T"
         android:textSize="21dp"

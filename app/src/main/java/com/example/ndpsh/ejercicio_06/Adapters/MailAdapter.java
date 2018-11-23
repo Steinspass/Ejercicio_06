@@ -72,7 +72,7 @@ public class MailAdapter extends BaseAdapter {
         }else{
             shortSubject = currentMail.getSubject();
         }
-        holder.subject.setText(shortSubject);
+        holder.subject.setText();
 
         // Basicamente hay que agregar puntos suspensivos si llega a 80 letras
         String shortMessage;

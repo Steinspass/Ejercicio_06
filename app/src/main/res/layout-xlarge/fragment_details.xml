@@ -32,7 +32,7 @@
                 android:id="@+id/textViewFragmentSubject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="¿Quieres conseguir premio?"
+                android:text="Destiny"
                 android:textSize="21dp" />
 
 
@@ -57,7 +57,7 @@
                 android:id="@+id/textViewFragmentSenderName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="alejandrofpo@gmail.com"
+                android:text="email"
                 android:textSize="21dp" />
 
 
