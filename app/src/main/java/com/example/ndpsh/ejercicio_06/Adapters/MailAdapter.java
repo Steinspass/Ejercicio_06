@@ -50,46 +50,49 @@ public class MailAdapter extends BaseAdapter {
 
         ViewHolder holder;
 
-        if(convertView == null) {
-           convertView = LayoutInflater.from(context).inflate(layout, null);
-           holder = new ViewHolder();
-           holder.subject = convertView.findViewById(R.id.textViewListSubject);
-           holder.message = convertView.findViewById(R.id.textViewFragmentMessage);
-           holder.sender = convertView.findViewById(R.id.textViewListSenderName);
-           convertView.setTag(holder);
-        }else {
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(layout, null);
+            holder = new ViewHolder();
+            holder.subject = (TextView) convertView.findViewById(R.id.textViewListSubject);
+            holder.message = (TextView) convertView.findViewById(R.id.textViewListMessage);
+            holder.sender = (TextView) convertView.findViewById(R.id.textViewListSenderName);
+            convertView.setTag(holder);
+        } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
 
         Mail currentMail = (Mail) getItem(position);
 
-        // Si el titulo del correo es mas corto de 40 letras, lo dejamos igual , si es mas largo
-        // lo cortamos y le agregamos puntos suspensivos al final
+        // Si el título del correo es más corto de 40 letras, lo dejamos igual, si es más largo,
+        // lo cortamos y le añadimos puntos suspensivos al final
         String shortSubject;
         if (currentMail.getSubject().length() > SUBJECT_MAX_LENGHT) {
-            shortSubject = currentMail.getSubject().substring(0,SUBJECT_MAX_LENGHT) + "...";
-        }else{
+            shortSubject = currentMail.getSubject().substring(0, SUBJECT_MAX_LENGHT) + "...";
+        } else {
             shortSubject = currentMail.getSubject();
         }
         holder.subject.setText(shortSubject);
 
-        // Basicamente hay que agregar puntos suspensivos si llega a 80 letras
+
+        // Si el mensaje de correo es más corto de 80 letras, lo dejamos igual, si es más largo,
+        // lo cortamos y le añadimos puntos suspensivos al final
         String shortMessage;
-        if(currentMail.getMessage().length() > MESSAGE_MAX_LENGHT){
-            shortMessage = currentMail.getMessage().substring(0,MESSAGE_MAX_LENGHT) + "...";
-        }else{
+        if (currentMail.getMessage().length() > MESSAGE_MAX_LENGHT) {
+            shortMessage = currentMail.getMessage().substring(0, MESSAGE_MAX_LENGHT) + "...";
+        } else {
             shortMessage = currentMail.getMessage();
         }
         holder.message.setText(shortMessage);
 
-        // Cogemos solo la primera letra del email
-        holder.sender.setText(currentMail.getSenderName().substring(0,1));
-        // Obtenenemos el background que es drawable, le cambiamos el color con el random color
+        // Cogemos sólo la primera letra del correo
+        holder.sender.setText(currentMail.getSenderName().substring(0, 1));
+        // Obtenemos el backround que es un drawable, y le cambiamos el color con el random color
         holder.sender.getBackground().setColorFilter(Color.parseColor("#" + currentMail.getColor()), PorterDuff.Mode.SRC);
 
+        return convertView;
 
-        return convertView ;
+
     }
 
 
